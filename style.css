@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: blueviolet;
+}
+
+body {
+  background-color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --height: 200px;
+  --boxSize: 5;
+}
+
+h1 {
+  margin: 30px 0px;
+  text-align: center;
+  font-weight: 800;
+  color: white;
+}
+
+.date-picker-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected-date {
+  font-size: 30px;
+  font-weight: 800;
+  padding: 20px;
+  cursor: pointer;
+  background-color: aqua;
+}
+
+.dates-container {
+  display: none;
+}
+
+.month {
+  padding: 2px;
+  width: 256.2px;
+  font-weight: 300;
+  font-size: 20px;
+  background-color: aqua;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.days-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  height: var(--height);
+  grid-auto-rows: calc(
+    var(--height) / var(--boxSize)
+  ); /* this is done so that february month doesn't gets any uncertainity in sizing as it has only 28 days */
+  background-color: rgb(54, 49, 56);
+}
+
+.days-container .day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.days-container .day:hover {
+  background-color: rgb(91, 122, 227);
+  cursor: pointer;
+}
+
+.days-container .day.selected {
+  background-color: rgb(56, 86, 133);
+}
